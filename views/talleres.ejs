@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de talleres</title>
+</head>
+<body>
+    <h1>Talleres disponibles</h1>
+
+    <form action="/talleres" method="get">
+        <label for="categoria">Categoría:</label>
+        <input
+            type="text"
+            id="categoria"
+            name="categoria"
+            value="<%= categoria %>"
+        >
+
+        <label for="nivel">Nivel:</label>
+        <select id="nivel" name="nivel">
+            <option value="">Todos</option>
+            <option value="inicial" <%= nivel === 'inicial' ? 'selected' : '' %>>Inicial</option>
+            <option value="intermedio" <%= nivel === 'intermedio' ? 'selected' : '' %>>Intermedio</option>
+            <option value="avanzado" <%= nivel === 'avanzado' ? 'selected' : '' %>>Avanzado</option>
+        </select>
+
+        <label for="disponibles">Disponibilidad:</label>
+        <select id="disponibles" name="disponibles">
+            <option value="" <%= disponibles === undefined || disponibles === '' ? 'selected' : '' %>>Todos</option>
+            <option value="true" <%= disponibles === 'true' ? 'selected' : '' %>>Con plazas</option>
+            <option value="false" <%= disponibles === 'false' ? 'selected' : '' %>>Completos</option>
+        </select>
+
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <% if (talleres.length === 0) { %>
+        <p>No se han encontrado talleres.</p>
+    <% } %>
+
+    <% talleres.forEach((taller) => { %>
+        <article>
+            <h2><%= taller.titulo %></h2>
+            <p>Categoría: <%= taller.categoria %></p>
+            <p>Nivel: <%= taller.nivel %></p>
+            <p>Plazas restantes: <%= taller.plazasRestantes %></p>
+            <a href="/talleres/<%= taller.id %>">Ver ficha</a>
+        </article>
+        <hr>
+    <% }) %>
+</body>
+</html>

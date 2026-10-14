@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscripción</title>
+</head>
+<body>
+
+    <h1>Inscripción al taller</h1>
+
+    <h2><%= taller.titulo %></h2>
+
+    <p>Categoría: <%= taller.categoria %></p>
+    <p>Nivel: <%= taller.nivel %></p>
+
+    <% if (errores.nombre) { %>
+        <p><%= errores.nombre %></p>
+    <% } %>
+
+    <% if (errores.email) { %>
+        <p><%= errores.email %></p>
+    <% } %>
+
+    <form action="/talleres/<%= taller.id %>/inscripcion" method="POST">
+
+        <label for="nombre">Nombre:</label>
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            value="<%= datos.nombre %>"
+        >
+
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            value="<%= datos.email %>"
+        >
+
+        <br><br>
+
+        <button type="submit">Inscribirme</button>
+
+    </form>
+
+    <p>
+        <a href="/talleres/<%= taller.id %>">
+            Volver al taller
+        </a>
+    </p>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= taller.titulo %></title>
+</head>
+<body>
+    <h1><%= taller.titulo %></h1>
+
+    <p>Categoría: <%= taller.categoria %></p>
+    <p>Nivel: <%= taller.nivel %></p>
+    <p>Plazas totales: <%= taller.plazas %></p>
+
+    <h2><%= estado %></h2>
+
+    <% if (plazasRestantes > 0) { %>
+        <a href="/talleres/<%= taller.id %>/inscripcion">
+            Inscribirme
+        </a>
+    <% } %>
+
+    <p><a href="/talleres">Volver al listado</a></p>
+</body>
+</html>
