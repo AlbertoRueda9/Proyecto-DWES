@@ -98,7 +98,7 @@ También se han comprobado diferentes situaciones de error, como introducir un e
 
 ## 8. Chat utilizado como apoyo
 
-
+https://chatgpt.com/c/6acfc54d-6b68-83ed-bbf5-400aabbce244
 
 ## 19. Conclusión
 
